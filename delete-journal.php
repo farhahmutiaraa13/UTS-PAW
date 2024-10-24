@@ -59,7 +59,7 @@ if (isset($_POST['id']) && isset($_POST['cover'])) {
         } catch (Exception $e) {
             // Rollback jika terjadi kesalahan
             $conn->rollback();
-            echo "Failed to delete journal: " . $e->getMessage();
+            echo "Gagal menghapus journal : " . $e->getMessage();
         }
     } else {
         // Jika jurnal tidak ditemukan, arahkan kembali ke halaman utama

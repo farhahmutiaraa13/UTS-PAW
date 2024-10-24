@@ -80,6 +80,11 @@
             text-align: center; /* Memusatkan teks kesalahan */
         }
 
+        .login-link {
+            margin-top: 20px; /* Menambahkan jarak 20px dari tombol submit */
+            font-size: 14px;
+        }
+
         input[type="submit"] {
             display: block;
             width: 100%;
@@ -102,13 +107,17 @@
             <label for="password">Password:</label>
             <input type="password" name="password" required><br>
             <input type="submit" name="submit" value="Submit">
+
+            <?php if ($error_message): ?> <!-- Memeriksa apakah ada pesan kesalahan -->
+                <div class="error-message">
+                    <?php echo $error_message; ?> <!-- Menampilkan pesan kesalahan -->
+                </div>
+            <?php endif; ?>
+        
+            <div class="login-link">
+                Already have an account? <a href="login.php">Login here</a> 
+            </div>
         </form>
     </div>
-    
-    <?php if ($error_message): ?> <!-- Memeriksa apakah ada pesan kesalahan -->
-        <div class="error-message">
-            <?php echo $error_message; ?> <!-- Menampilkan pesan kesalahan -->
-        </div>
-    <?php endif; ?>
 </body>
 </html>

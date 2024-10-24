@@ -108,6 +108,11 @@
             text-align: center; 
         }
 
+        .register-link {
+            margin-top: 20px; /* Menambahkan jarak 20px dari tombol submit */
+            font-size: 14px;
+        }
+        
         .welcome-message {
             font-size: 18px;
             color: #555;
@@ -139,6 +144,9 @@
                     <?php echo $error_message; ?> <!-- Menampilkan pesan kesalahan -->
                 </div>
             <?php endif; ?>
+            <div class="register-link">
+                Don't have an account? <a href="register.php">Register here</a> <!-- Tambahkan link ke halaman register -->
+            </div>
         </div>
         <div class="right">
             <h1>Welcome Back!</h1>

@@ -86,6 +86,11 @@
 
             <!-- Submit Button -->
             <input type="submit" value="Upload Journal">
+
+            <!-- Tombol Back -->
+            <div class="back-button">
+                <a href="index.php" class="btn-back">Back</a>
+            </div>
         </form>
     </div>
 

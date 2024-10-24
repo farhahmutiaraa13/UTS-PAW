@@ -1,22 +1,22 @@
 <?php
-// Memulai sesi
-session_start();
+    // Memulai sesi
+    session_start();
 
-// Meriksa status login
-if (!isset($_SESSION['login'])) {
-    header('Location: login.php'); 
-    exit();
-}
+    // Meriksa status login
+    if (!isset($_SESSION['login'])) {
+        header('Location: login.php'); 
+        exit();
+    }
 
-// Sertakan file koneksi ke database
-include 'koneksi.php'; // Ini untuk menyertakan file koneksi.php
+    // Sertakan file koneksi ke database
+    include 'koneksi.php'; // Ini untuk menyertakan file koneksi.php
 
-// Mengambil jurnal dengan kategori life-reflection dari database
-$sql = "SELECT id, judul, tanggal_published FROM journals WHERE kategori = 'daily-stories' ORDER BY tanggal_published DESC";
-$result = mysqli_query($conn, $sql);
+    // Mengambil jurnal dengan kategori life-reflection dari database
+    $sql = "SELECT id, judul, tanggal_published FROM journals WHERE kategori = 'daily-stories' ORDER BY tanggal_published DESC";
+    $result = mysqli_query($conn, $sql);
 
-// Mengecek apakah query berhasil
-if ($result):
+    // Mengecek apakah query berhasil
+    if ($result):
 ?>
 
 <!DOCTYPE html>

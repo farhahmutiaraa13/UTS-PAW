@@ -8,7 +8,7 @@
         exit();
     }
 
-    // set esi timeout
+    // set sesi timeout
     $inactive = 1800; // 30 minutes
     if (isset($_SESSION['timeout'])) {
         $session_life = time() - $_SESSION['timeout'];

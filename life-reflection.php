@@ -8,8 +8,8 @@
         exit();
     }
 
-    // Sertakan file koneksi ke database
-    include 'koneksi.php'; // Ini untuk menyertakan file koneksi.php
+    // Menyertakan file koneksi ke database
+    include 'koneksi.php'; 
 
     // Mengambil jurnal dengan kategori life-reflection dari database
     $sql = "SELECT id, judul, tanggal_published FROM journals WHERE kategori = 'life-reflection' ORDER BY tanggal_published DESC";

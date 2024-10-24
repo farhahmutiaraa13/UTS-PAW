@@ -63,7 +63,7 @@ if ($result->num_rows > 0) {
     <h1><?= htmlspecialchars($journal['judul']); ?></h1>
 
     <!-- Tanggal Published -->
-    <p class="published-date">Published on: <?= date("F d, Y", strtotime($journal['tanggal_published'])); ?></p>
+    <p class="published-date">Published on <?= date("d F, Y", strtotime($journal['tanggal_published'])); ?></p>
 
     <!-- Cover Image -->
     <?php if (!empty($journal['cover'])): ?>

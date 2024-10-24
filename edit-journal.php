@@ -1,35 +1,36 @@
 <?php
-session_start();
-include 'koneksi.php';
+    session_start();
+    include 'koneksi.php';
 
-// Periksa apakah pengguna sudah login
-if (!isset($_SESSION['login'])) {
-    header('Location: login.php'); 
-    exit();
-}
+    // Periksa apakah pengguna sudah login
+    if (!isset($_SESSION['login'])) {
+        header('Location: login.php'); 
+        exit();
+    }
 
-// Mengambil ID jurnal dari URL
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+    // Mengambil ID jurnal dari URL
+    $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Jika ID tidak valid, arahkan kembali ke halaman utama
-if ($id <= 0) {
-    header('Location: life-reflection.php');
-    exit();
-}
+    // Jika ID tidak valid, arahkan kembali ke halaman utama
+    if ($id <= 0) {
+        header('Location: index.php');
+        exit();
+    }
 
-// Mengambil detail jurnal dari database
-$sql = "SELECT judul, journal_text, cover, kategori FROM journals WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
+    // Mengambil detail jurnal dari database
+    $sql = "SELECT judul, journal_text, cover, kategori FROM journals WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-if ($result->num_rows > 0) {
-    $journal = $result->fetch_assoc();
-} else {
-    header('Location: life-reflection.php');
-    exit();
-}
+    // Mengambil satu baris hasil sebagai array asosiatif
+    if ($result->num_rows > 0) {
+        $journal = $result->fetch_assoc();
+    } else {
+        header('Location: index.php');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
